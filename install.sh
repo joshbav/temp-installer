@@ -23,7 +23,7 @@ sudo yum -y install -y yum-utils device-mapper-persistent-data lvm2
 sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum-config-manager --enable docker-ce-edge
 sudo yum-config-manager --enable docker-ce-test
-yum remove docker-engine-selinux container-selinux
+yum remove -y docker-engine-selinux container-selinux
 yum install -y --setopt=obsoletes=0 docker-ce-17.05.0.ce
 
 #Configure systemd to run the Docker Daemon with OverlayFS
