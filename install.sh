@@ -1,4 +1,4 @@
-sudo yum update -y && sudo yum install -y tar xz unzip curl ipset &&  sudo systemctl stop firewalld && sudo systemctl disable firewalld
+sudo yum update -y && sudo yum install -y tar xz unzip curl ipset bind-utils &&  sudo systemctl stop firewalld && sudo systemctl disable firewalld
 
 #####Verify NTP is setup and synchronized (not necessary in AWS)
 timedatectl 
