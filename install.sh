@@ -1,4 +1,17 @@
-sudo yum update -y && sudo yum install -y tar xz unzip curl ipset bind-utils &&  sudo systemctl stop firewalld && sudo systemctl disable firewalld
+sudo yum update -y 
+sudo yum install -y epel-release
+sudo yum install -y tar xz unzip curl ipset bind-utils autofs nano ftp jq wget expect net-tools traceroute iproute unzip python34-setuptools python34-pip
+sudo pip3 install --upgrade pip
+sudo pip3 install virtualenv 
+
+### JAVA, is disabled
+###sudo curl -o /tmp/java9.0.4.tar.gz -L -O https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz
+sudo tar xvf /tmp/java9.0.4.tar.gz -C /opt
+### todo add JAVA_HOME and edit path in  /etc/profile
+
+sudo systemctl stop firewalld 
+sudo systemctl disable firewalld
+
 
 #####Verify NTP is setup and synchronized (not necessary in AWS)
 timedatectl 
