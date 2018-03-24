@@ -45,5 +45,5 @@ systemctl disable libvirtd.service
 
 # done
 echo
-echo “DONE. Please reboot then do a docker run hello-world”
+echo DONE. Please reboot then do a docker run hello-world   to test
 
