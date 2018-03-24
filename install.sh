@@ -1,6 +1,6 @@
 sudo yum update -y 
 sudo yum install -y epel-release
-sudo yum install -y tar xz unzip curl ipset bind-utils autofs nano ftp jq wget expect net-tools traceroute iproute unzip python34-setuptools python34-pip
+sudo yum install -y tar xz unzip curl ipset bind-utils autofs nano ftp jq wget expect net-tools traceroute iproute telnet unzip python34-setuptools python34-pip
 sudo pip3 install --upgrade pip
 sudo pip3 install virtualenv 
 
