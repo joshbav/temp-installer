@@ -34,7 +34,7 @@ overlay
 EOF
 
 sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install -y ddocker-ce-17.12.1.ce
+sudo yum install -y docker-ce-17.12.1.ce
 
 #sudo yum-config-manager --enable docker-ce-edge
 #sudo yum-config-manager --enable docker-ce-test
