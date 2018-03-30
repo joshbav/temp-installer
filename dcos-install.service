@@ -1,0 +1,14 @@
+[Unit]
+Description=Downloads and runs DC/OS install from DC/OS bootstrap
+Requires=dcos-multi-user.target
+After=multi-user.target
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+StandardError=journal+console
+EnvironmentFile=
+ExecStartPre=rm -rf /tmp/dcos_install.sh
+ExecStartPre=curl -o /tmp/dcos_install.sh -O http://10.20.1.60:88/dcos_install.sh
+ExecStart=sudo bash /tmp/dcos_install.sh slave
+[Install]
+WantedBy=multi-user.target
