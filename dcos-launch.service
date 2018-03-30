@@ -16,6 +16,5 @@ ExecStartPre=/usr/bin/bash -c "curl -o /tmp/dcos_install.sh -O http://10.20.1.60
 ExecStart=/usr/bin/bash -c "bash /tmp/dcos_install.sh slave"
 # Note ExecStopPost entries are ran regardless of the outcome of ExecStartPre and ExecStart commands
 ExecStopPost=/usr/bin/systemctl disable dcos-launch.service
-ExecStopPost=/usr/bin/systemctl daemon-reload
 [Install]
 WantedBy=multi-user.target
