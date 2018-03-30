@@ -1,7 +1,12 @@
 [Unit]
 # Revision 3-30-18
 # This is a custom systemd unit that is ran only once, and is used for making OS images that launch DC/OS on startup
-# This is for DC/OS slave nodes only, for public nodes the dcos_intall.sh line below needs to be changed to public_slave
+# This is for DC/OS private agent nodes only, for public agent nodes the dcos_intall.sh line below needs to be changed
+# The dcos_intall.sh line below MUST be customized for your bootstrap IP and port. 
+#
+# USAGE: Setup an OS with all the required DC/OS prerequisites, then add this systemd unit and enable it. Shut down the OS and image it.
+#    When clones of the image are started they will install and run DC/OS as a private agent.
+#
 Description=Downloads and runs DC/OS install from DC/OS bootstrap, is NOT a part of the normal DC/OS install process
 Requires=multi-user.target
 After=multi-user.target
