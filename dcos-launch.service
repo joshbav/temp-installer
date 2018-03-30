@@ -1,6 +1,6 @@
 [Unit]
 Description=Downloads and runs DC/OS install from DC/OS bootstrap
-Requires=dcos-multi-user.target
+Requires=multi-user.target
 After=multi-user.target
 [Service]
 Type=oneshot
