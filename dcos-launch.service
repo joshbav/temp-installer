@@ -1,5 +1,8 @@
 [Unit]
-Description=Downloads and runs DC/OS install from DC/OS bootstrap
+# Revision 3-30-18
+# This is a custom systemd unit that is ran only once, and is used for making OS images that launch DC/OS on startup
+# This is for DC/OS slave nodes only, for public nodes the dcos_intall.sh line below needs to be changed to public_slave
+Description=Downloads and runs DC/OS install from DC/OS bootstrap, is NOT a part of the normal DC/OS install process
 Requires=multi-user.target
 After=multi-user.target
 [Service]
@@ -7,9 +10,12 @@ Type=oneshot
 StandardOutput=journal+console
 StandardError=journal+console
 EnvironmentFile=
-# NOTE SYSTEMD STARTS EXECUTABLES AS ROOT BY DEFAULT, THUS NO SUDO
+# Note systemd starts executables as root by default, thus no use of sudo below
 ExecStartPre=/usr/bin/bash -c "rm -rf /tmp/dcos_install.sh"
 ExecStartPre=/usr/bin/bash -c "curl -o /tmp/dcos_install.sh -O http://10.20.1.60:88/dcos_install.sh"
 ExecStart=/usr/bin/bash -c "bash /tmp/dcos_install.sh slave"
+# Note ExecStopPost entries are ran regardless of the outcome of ExecStartPre and ExecStart commands
+ExecStopPost=systemctl disable dcos-launch.service
+ExecStopPost=systemctl daemon-reload
 [Install]
 WantedBy=multi-user.target
