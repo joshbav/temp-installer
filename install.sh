@@ -33,8 +33,7 @@ sudo tee /etc/modules-load.d/overlay.conf <<-'EOF'
 overlay
 EOF
 
-yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install -y docker-ce-17.06.2.ce-1.el7.centos
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && sudo yum install -y docker-ce-17.06.2.ce-1.el7.centos
 
 #sudo yum-config-manager --enable docker-ce-edge
 #sudo yum-config-manager --enable docker-ce-test
@@ -42,11 +41,11 @@ sudo yum install -y docker-ce-17.06.2.ce-1.el7.centos
 #sudo yum install -y --setopt=obsoletes=0 docker-ce-17.05.0.ce
 
 #Configure systemd to run the Docker Daemon with OverlayFS
-#sudo mkdir -p /etc/systemd/system/docker.service.d && sudo tee /etc/systemd/system/docker.service.d/override.conf <<- EOF
-#[Service]
-#ExecStart=
-#ExecStart=/usr/bin/dockerd --storage-driver=overlay
-#EOF
+sudo mkdir -p /etc/systemd/system/docker.service.d && sudo tee /etc/systemd/system/docker.service.d/override.conf <<- EOF
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd --storage-driver=overlay
+EOF
 
 sudo systemctl enable docker
 
