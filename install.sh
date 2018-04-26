@@ -33,7 +33,7 @@ sudo tee /etc/modules-load.d/overlay.conf <<-'EOF'
 overlay
 EOF
 
-# not needed any more sudo yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager  --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install -y docker-ce-17.06.2.ce-1.el7.centos
 
 #sudo yum-config-manager --enable docker-ce-edge
