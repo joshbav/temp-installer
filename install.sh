@@ -2,7 +2,14 @@ echo "This is Josh's quick install prerequsite script for DC/OS on CentOS 7"
 
 sudo yum update -y 
 sudo yum install -y epel-release
-sudo yum install -y tar xz unzip curl ipset bind-utils autofs nano ftp jq wget expect net-tools traceroute telnet unzip yum-utils device-mapper-persistent-data lvm2 which gawk curl gettext host iproute util-linux sed
+
+#### DC/OS prerequisites
+sudo yum install -y tar xz unzip ipset bind-utils which gawk curl gettext host iproute util-linux sed
+
+#### Packages I like to use
+sudo yum install -y autofs nano ftp jq wget expect net-tools traceroute telnet yum-utils device-mapper-persistent-data lvm2 which
+
+#### Not used, in case I wan python
 #sudo pip3 install --upgrade pip
 #sudo pip3 install virtualenv 
 
