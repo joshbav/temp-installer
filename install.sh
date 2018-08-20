@@ -13,7 +13,7 @@ sudo yum install -y tar xz unzip ipset bind-utils which gawk curl gettext host i
 #### Packages I like to use
 sudo yum install -y autofs nano ftp jq wget expect net-tools traceroute telnet yum-utils device-mapper-persistent-data lvm2 which
 
-#### Not used, in case I wan python
+#### Not used, in case I want python
 #sudo pip3 install --upgrade pip
 #sudo pip3 install virtualenv 
 
