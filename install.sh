@@ -4,6 +4,10 @@ sudo yum update -y
 sudo yum install -y epel-release
 
 #### DC/OS prerequisites
+# Note some of these are not longer needed, but are left here because of
+# older versions of K8s on DC/OS (subh as bind-utils) needing them.
+# But I see no problem with installing them because they are generally useful
+# anyhow
 sudo yum install -y tar xz unzip ipset bind-utils which gawk curl gettext host iproute util-linux sed
 
 #### Packages I like to use
@@ -56,5 +60,5 @@ sudo groupadd nogroup && sudo groupadd docker
 
 echo
 echo
-echo DONE. Please reboot then do a 'docker run hello-world' to test
+echo DONE. Please reboot then do a 'sudo docker run hello-world' to test
 
