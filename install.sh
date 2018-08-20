@@ -20,6 +20,9 @@ sudo yum install -y autofs nano ftp jq wget expect net-tools traceroute telnet y
 sudo systemctl stop firewalld 
 sudo systemctl disable firewalld
 
+# Likely not in use on CenOS server, but adding it anyhow to be safe
+sudo systemctl stop dnsmasq 
+sudo systemctl disable dnsmasq.service
 
 ##### TO DO: Verify NTP is setup and synchronized (not necessary in AWS)
 # Note we are not installing chronyd or ntpd, you need to do that
