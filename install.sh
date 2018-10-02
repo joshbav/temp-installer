@@ -2,14 +2,15 @@ echo
 echo "This is Josh's quick install prerequsite script for DC/OS on CentOS 7"
 echo "Tested on Centos 7.3 and 7.4"
 echo
-sudo yum update -y 
+### this could upgrade the centos/rhel version itself # sudo yum update -y 
 sudo yum install -y epel-release
 
 #### ADD COMMON LINUX PACKAGES
-# Only a few of these are required by DC/OS, however I've found
-# that many minimal images are lacking some common optional utilities, 
-# so I've added them here. Our requirements doc lists what DC/OS needs. 
-sudo yum install -y tar xz unzip ipset bind-utils which gawk curl gettext host iproute util-linux sed  autofs nano ftp jq wget expect net-tools traceroute yum-utils device-mapper-persistent-data lvm2 which
+# Required by DC/OS
+sudo yum install -y tar xz unzip ipset 
+#
+# Utilities I find useful
+sudo yum install -y bind-utils which gawk curl gettext host iproute util-linux sed autofs nano ftp jq wget expect net-tools traceroute yum-utils device-mapper-persistent-data lvm2 which
 
 #### Not used, in case I want python for automation
 #sudo pip3 install --upgrade pip
@@ -31,6 +32,7 @@ sudo systemctl disable dnsmasq.service
 
 ##### TO DO: Verify NTP is setup and synchronized (not necessary in AWS)
 # Note we are not installing chronyd or ntpd, you need to do that
+# todo: uninstall ntpd, install chronyd, copy config file, restart chronyd
 timedatectl 
 
 #### Disable SELinux
